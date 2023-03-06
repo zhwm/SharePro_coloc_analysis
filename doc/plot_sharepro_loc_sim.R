@@ -193,8 +193,7 @@ gwasplot <- function(x,causal){
           axis.text = element_text(size = 13),
           strip.text = element_text(size = 13)) +
     labs(color = expression(r^2))
-  ggsave(paste0("~/Desktop/GitHub/SharePro_coloc_analysis/doc/prior_sensitivity",x,".pdf"),height = 5, width = 5)
-  #ggsave(paste0("~/scratch/SharePro_loc/doc/prior_sensitivity",x,".pdf"),height = 5, width = 5)
+  ggsave(paste0("~/scratch/SharePro_loc/doc/prior_sensitivity",x,".pdf"),height = 5, width = 5)
 }
 
 gwasplot(14,"rs175860")
