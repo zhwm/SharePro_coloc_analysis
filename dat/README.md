@@ -11,7 +11,7 @@ Colocalization analysis is difficult in this locus because of a complicated LD s
 
 ## Data
 
-We obtained the openly available GWAS summary statistics for heel bone mineral density from [GEFOS consortium](http://www.gefos.org). 
+We obtained the openly available GWAS summary statistics for estimated lheel bone mineral density from [GEFOS consortium](http://www.gefos.org). 
 For GWAS summary statistics for circulating abundance of RSPO3 protein, we used the pQTL (protein quantitative trait loci) summary statistics from [the Fenland study](https://omicscience.org/apps/pgwas/).
 Since both studies are conducted in the European population, LD (linkage disequalibrium) matrix was calculated using [UK Biobank](https://www.ukbiobank.ac.uk) European ancestry individuals.
 
@@ -62,7 +62,7 @@ After this step, we now have the required inputs for SharePro:
 
 First, we conducted colocalization analysis with [SharePro](https://github.com/zhwm/SharePro_coloc), which jointly models LD and assesses colocalization of traits while allowing for multiple causal signals.
 
-Traditionally, colocalization is assessed using [COLOC](https://chr1swallace.github.io/coloc/) which assumes only one causal signal and do not take into account of LD between variants.
+Traditionally, colocalization is assessed using [COLOC](https://chr1swallace.github.io/coloc/) which assumes only one causal signal and does not take into account of LD between variants.
 
 Some methods have extended the [COLOC](https://chr1swallace.github.io/coloc/) framework to allow for multiple causal signals. 
 Most of them implement a two-step strategy. Namely, they first account for LD via fine-mapping or conditional analysis to identify candidate variants for colocalization analysis, separately for two traits. 
