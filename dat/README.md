@@ -4,7 +4,7 @@ In this application example, we showcase the utility of SharePro in assessing co
 Colocalization analysis is difficult in this locus because of a complicated LD structure and multiple causal variants.
 
 <p align="center">
-  <img src="../doc/RSPO3.ld.png" alt="LD matrix in the RSPO3 locus" width="100" height="120">
+  <img src="../doc/RSPO3.ld.png" alt="LD matrix in the RSPO3 locus">
   <br>
   <em>Figure 1: LD matrix in the RSPO3 locus.</em>
 </p>
