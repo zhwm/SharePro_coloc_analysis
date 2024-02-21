@@ -40,8 +40,8 @@ we performed colocalization analysis with different methods using default settin
 
 ## Result visualization
 
-SharePro achieved high power and well-controlled false discoveries across most simulation settings and the simulation results can be visualized [here](../doc/sharepro_loc_sim_colocalization.pdf).
+SharePro achieved high power and well-controlled false discoveries across most simulation settings.
 
 ```
-Rscript ../doc/plot_sharepro_loc_sim.R
+Rscript ../doc/plot_sim.R
 ```

@@ -4,7 +4,7 @@ In this application example, we showcase the utility of SharePro in assessing co
 Colocalization analysis is difficult in this locus because of a complicated LD structure and multiple causal variants.
 
 <p align="center">
-  <img src="../doc/RSPO3.ld.png" alt="LD matrix in the RSPO3 locus">
+  <img src="../../plt/RSPO3.ld.png" alt="LD matrix in the RSPO3 locus">
   <br>
   <em>Figure 1: LD matrix in the RSPO3 locus.</em>
 </p>
@@ -77,7 +77,6 @@ python ../src/sharepro_loc.py \
 --zdir . \
 --N 426824 10708 \
 --save . \
---prefix BMD_RSPO3_SH \
 --verbose \
 --K 10
 
@@ -97,9 +96,9 @@ RSPO3_pwcoco.txt
 ## Result visualization
 
 SharePro identified strong evidence of shared signals with a colocalization probability of 1.00
-while other methods demonstrated a limited evidence for colocalization. We can visualize both the [locus](../doc/BMD_RSPO3.pdf) and the [colocalization results](../doc/BMD_RSPO3_H4.pdf).
+while other methods demonstrated a limited evidence for colocalization. We can visualize the [locus](../doc/BMD_RSPO3.pdf).
 ```
-Rscript ../doc/plot_RSPO3_BMD.R
+Rscript ../doc/plot_RSPO3.R
 ```
 
 ## Sensitivity analysis
@@ -114,7 +113,6 @@ for i in 1e-3 1e-4 1e-5 1e-6 1e-7; do python ../../src/sharepro_loc.py \
 --zdir ../ \
 --N 426824 10708 \
 --save $i \
---prefix BMD_RSPO3_SH \
 --verbose \
 --K 10 \
 --sigma $i; done

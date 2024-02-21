@@ -93,29 +93,24 @@ def match_ss(ssdir, qtldir, rsdir, bimdir, sname, qname, ukb=False):
     pd.DataFrame({'SNP':common_snps_lst, 'Z':[qtl_dict[i] for i in common_snps_lst]}).to_csv(qname, sep='\t', header=False, index=False)
 
 
-# PCSK9 - LDL, Tg - Alirocumab, Evolucumab - 5231_79 - chr1:55,505,221-55,530,525
-# APOB - LDL, Tg - Mipomersen - 2797_56 - chr2:21,224,301-21,266,945
-# LPL - LDL, Tg - Lipoprotein lipase - P06858 - chr8:19,796,764-19,824,770
-# ANGPTL3 - LDL, Tg - Evinacumab - 10391_1 - chr1:63,063,191-63,071,984
-# APOC3 - LDL, Tg - Volanesorsen - 6461_54 - chr11:116,700,623-116,703,788
+# PCSK9 - LDL - Alirocumab, Evolucumab - 5231_79 - chr1:55,505,221-55,530,525
+# APOB - LDL - Mipomersen - 2797_56 - chr2:21,224,301-21,266,945
+# LPL - Tg - Lipoprotein lipase - P06858 - chr8:19,796,764-19,824,770
+# ANGPTL3 - Tg - Evinacumab - 10391_1 - chr1:63,063,191-63,071,984
+# APOC3 - Tg - Volanesorsen - 6461_54 - chr11:116,700,623-116,703,788
 
-# match PCSK9 with LDL(30780) Tg(30870)
+# match PCSK9 with LDL(30780) 
 match_ss('raw/30780_irnt.gwas.imputed_v3.both_sexes.varorder.tsv.bgz', 'raw/res_invn_X5231_79_Fenland_MA_auto_chrX_filtered_1pc.txt.gz', '/home/wmzh22/utils/ukb/idx/1.rsid', 'bed/PCSK9.bim', 'ss/LDL.PCSK9.LDL.txt', 'ss/LDL.PCSK9.PCSK9.txt')
-#match_ss('raw/30870_irnt.gwas.imputed_v3.both_sexes.varorder.tsv.bgz', 'raw/res_invn_X5231_79_Fenland_MA_auto_chrX_filtered_1pc.txt.gz', '/home/wmzh22/utils/ukb/idx/1.rsid', 'bed/PCSK9.bim', 'ss/Tg.PCSK9.Tg.txt', 'ss/Tg.PCSK9.PCSK9.txt')
 
-# match APOB with LDL(30780) Tg(30870)
+# match APOB with LDL(30780) 
 match_ss('raw/30780_irnt.gwas.imputed_v3.both_sexes.varorder.tsv.bgz', 'raw/res_invn_X2797_56_Fenland_MA_auto_chrX_filtered_1pc.txt.gz', '/home/wmzh22/utils/ukb/idx/2.rsid', 'bed/APOB.bim', 'ss/LDL.APOB.LDL.txt', 'ss/LDL.APOB.APOB.txt')
-#match_ss('raw/30870_irnt.gwas.imputed_v3.both_sexes.varorder.tsv.bgz', 'raw/res_invn_X2797_56_Fenland_MA_auto_chrX_filtered_1pc.txt.gz', '/home/wmzh22/utils/ukb/idx/2.rsid', 'bed/APOB.bim', 'ss/Tg.APOB.Tg.txt', 'ss/Tg.APOB.APOB.txt')
 
-# match LPL with LDL(30780) Tg(30870)
-#match_ss('raw/30780_irnt.gwas.imputed_v3.both_sexes.varorder.tsv.bgz', 'raw/discovery_chr8_LPL:P06858:OID20188:v1:Cardiometabolic.gz', '/home/wmzh22/utils/ukb/idx/8.rsid', 'bed/LPL.bim', 'ss/LDL.LPL.LDL.txt', 'ss/LDL.LPL.LPL.txt', ukb=True)
+# match LPL with Tg(30870)
 match_ss('raw/30870_irnt.gwas.imputed_v3.both_sexes.varorder.tsv.bgz', 'raw/discovery_chr8_LPL:P06858:OID20188:v1:Cardiometabolic.gz', '/home/wmzh22/utils/ukb/idx/8.rsid', 'bed/LPL.bim', 'ss/Tg.LPL.Tg.txt', 'ss/Tg.LPL.LPL.txt', ukb=True)
 
-# match ANGPTL3 with LDL(30780) Tg(30870)
-#match_ss('raw/30780_irnt.gwas.imputed_v3.both_sexes.varorder.tsv.bgz', 'raw/res_invn_X10391_1_Fenland_MA_auto_chrX_filtered_1pc.txt.gz', '/home/wmzh22/utils/ukb/idx/1.rsid', 'bed/ANGPTL3.bim', 'ss/LDL.ANGPTL3.LDL.txt', 'ss/LDL.ANGPTL3.ANGPTL3.txt')
+# match ANGPTL3 with Tg(30870)
 match_ss('raw/30870_irnt.gwas.imputed_v3.both_sexes.varorder.tsv.bgz', 'raw/res_invn_X10391_1_Fenland_MA_auto_chrX_filtered_1pc.txt.gz', '/home/wmzh22/utils/ukb/idx/1.rsid', 'bed/ANGPTL3.bim', 'ss/Tg.ANGPTL3.Tg.txt', 'ss/Tg.ANGPTL3.ANGPTL3.txt')
 
-# match APOC3 with LDL(30780) Tg(30870)
-#match_ss('raw/30780_irnt.gwas.imputed_v3.both_sexes.varorder.tsv.bgz', 'raw/res_invn_X6461_54_Fenland_MA_auto_chrX_filtered_1pc.txt.gz', '/home/wmzh22/utils/ukb/idx/11.rsid', 'bed/APOC3.bim', 'ss/LDL.APOC3.LDL.txt', 'ss/LDL.APOC3.APOC3.txt')
+# match APOC3 with Tg(30870)
 match_ss('raw/30870_irnt.gwas.imputed_v3.both_sexes.varorder.tsv.bgz', 'raw/res_invn_X6461_54_Fenland_MA_auto_chrX_filtered_1pc.txt.gz', '/home/wmzh22/utils/ukb/idx/11.rsid', 'bed/APOC3.bim', 'ss/Tg.APOC3.Tg.txt', 'ss/Tg.APOC3.APOC3.txt')
 
