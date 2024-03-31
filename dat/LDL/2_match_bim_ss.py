@@ -8,7 +8,7 @@ def get_bim_dict(bimdir):
     with open(bimdir) as bim:
         for line in bim:
             ll = line.strip().split()
-            if ll[1] in bim_dict:
+            if ll[1] in bim_dict and ll[1] not in bim_dup:
                 bim_dup.append(ll[1])
             else:
                 bim_dict[ll[1]]=(ll[1], ll[4], ll[5])
