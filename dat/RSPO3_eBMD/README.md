@@ -36,7 +36,7 @@ RSPO3_UKB
 Since different colocalization methods require distinct inputs, we provide [match_bim_ss.py](match_bim_ss.py) for matching reference and alternative alleles in GWAS studies and LD calculation and formatting inputs. 
 
 ```
-## prepare inputs for SharePro
+## prepare inputs for eCAVIAR
 python match_bim_ss.py --rss Biobank2-British-Bmd-As-C-Gwas-SumStats.txt.gz 
 res_invn_X8427_118_Fenland_MA_auto_chrX_filtered_1pc.txt.gz --bim RSPO3_UKB.bim --rsID RSID rsid 
 --A1 EA Allele1 --A2 NEA Allele2 --BETA BETA Effect --SE SE StdErr --save .  --prefix BMD_SH 
@@ -52,12 +52,6 @@ RSPO3_pwcoco --N N TotalSampleSize --EAF EAF Freq1 --cols SNP A1 A2 EAF BETA SE 
 plink --bfile RSPO3_UKB --extract BMD_SH.txt --r --matrix --out RSPO3
 ```
 
-After this step, we now have the required inputs for SharePro: 
-* [the summary file](BMD_RSPO3.zld) 
-* [formatted eBMD summary statistics](BMD_SH.txt) 
-* [formatted RSPO3 pQTL summary statistics](RSPO3_SH.txt)
-* [the matched LD matrix](RSPO3.ld)
-
 ## Colocalization analysis
 
 First, we conducted colocalization analysis with [SharePro](https://github.com/zhwm/SharePro_coloc), which jointly models LD and assesses colocalization of traits while allowing for multiple causal signals.
@@ -72,13 +66,7 @@ Here, we have included the comparison with [COLOC](https://chr1swallace.github.i
 
 ```
 ## coloc with SharePro
-python ../src/sharepro_loc.py \
---zld BMD_RSPO3.zld \
---zdir . \
---N 426824 10708 \
---save . \
---verbose \
---K 10
+for i in 1e-3 1e-4 1e-5 1e-6 1e-7; do python ../../src/SharePro/sharepro_coloc.py --z BMD_pwcoco.txt RSPO3_pwcoco.txt --ld RSPO3.ld --sigma $i --save BMD.RSPO3.$i; done
 
 ## coloc with COLOC and COLOC + SuSiE
 module load rstudio-server
@@ -99,22 +87,5 @@ SharePro identified strong evidence of shared signals with a colocalization prob
 while other methods demonstrated a limited evidence for colocalization. We can visualize the [locus](../doc/BMD_RSPO3.pdf).
 ```
 Rscript ../doc/plot_RSPO3.R
-```
-
-## Sensitivity analysis
-
-We also performed prior sensitivity analysis to examine the effect of prior colocalization probability on colocalization results and for this locus, the colocalization results are robust to prior settings.
-
-```
-mkdir sensitivity
-cd sensitivity
-for i in 1e-3 1e-4 1e-5 1e-6 1e-7; do python ../../src/sharepro_loc.py \
---zld ../BMD_RSPO3.zld \
---zdir ../ \
---N 426824 10708 \
---save $i \
---verbose \
---K 10 \
---sigma $i; done
 ```
 
